@@ -1,9 +1,7 @@
 tags
 .DS_Store
 attached
-protected/runtime/
-protected/config/main.php
-assets
-runtime
+runtime/
 config/main.php
-swp
+assets/
+*.swp
