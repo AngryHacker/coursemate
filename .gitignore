@@ -1,0 +1,9 @@
+tags
+.DS_Store
+attached
+protected/runtime/
+protected/config/main.php
+assets
+runtime
+config/main.php
+swp

@@ -13,7 +13,7 @@
         </div>
 		<div class="content" data-role='content'>
 
-<img class="img-responsive center-block" src="images/mobilelogo.png" alt="">
+<img class="img-responsive center-block" height='250px' src="images/mobilelogo.png" alt="">
 
 <div class="cont">
 <div class="form">

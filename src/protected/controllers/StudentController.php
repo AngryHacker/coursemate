@@ -54,6 +54,7 @@ class StudentController extends Controller
 	public function actionView($id = -1)
 	{
         $self = true;
+        $is_friend = false;
 
         $stu_num = Yii::app()->user->stuid;
         $stu = Student::model()->findByAttributes(array('number'=>$stu_num));
@@ -63,11 +64,19 @@ class StudentController extends Controller
             $id = $stu->user_id;
         }
 
-        if($id != $stu->user_id) $self = false;
+        if($id != $stu->user_id)
+        {
+            $self = false;
+            $friend = Friend::model()->findByAttributes(array('stu1'=>$id,'stu2'=>$stu->user_id));
+            if($friend != NULL){
+                $is_friend = true;
+            }
+        }
 
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
             'self'=>$self,
+            'is_friend'=>$is_friend,
 		));
 	}
 

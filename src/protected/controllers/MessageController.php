@@ -2,11 +2,12 @@
 
 class MessageController extends Controller
 {
+	public $layout = '//layouts/site_mob';
+
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -125,6 +126,24 @@ class MessageController extends Controller
 		$dataProvider=new CActiveDataProvider('Message');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	/**
+	 * Lists all models.
+	 */
+	public function actionApplyFriend($toUserId)
+	{
+        $toUserModel = Student::model()->findByPk($toUserId);
+        $name = $toUserModel->nickname;
+        $model = new Message;
+
+        if($name == NULL)
+            $name = $toUserModel->username;
+
+		$this->render('applyFriend',array(
+            'model'=>$model,
+            'toUserName'=>$name,
 		));
 	}
 

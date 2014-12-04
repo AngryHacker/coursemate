@@ -61,8 +61,12 @@
 
 if($self)
 {
-    echo "<tr><td colspan='2'><a class='btn btn-lg btn-block btn-warning' href='?r=student/update&id={$model->user_id}'>更新资料</a></td></tr>";
+    echo "<a class='btn btn-lg btn-block btn-warning' href='?r=student/update&id={$model->user_id}'>更新资料</a>";
 }
+else if(!$is_friend){
+    echo "<a class='btn btn-lg btn-block btn-warning' href='?r=student/update&id={$model->user_id}'>添加好友</a>";
+}
+
 ?>
 
 </table>

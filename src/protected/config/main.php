@@ -52,7 +52,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=coursemate',
 			'emulatePrepare' => true,
-			'username' => 'root',
+			'username' => 'ljc',
 			'password' => '1',
 			'charset' => 'utf8',
 		),

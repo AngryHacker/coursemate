@@ -1,46 +1,34 @@
 <?php
-/* @var $this MessageController */
-/* @var $model Message */
+/* @var $this CommentsController */
+/* @var $model Comments */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'message-form',
+	'id'=>'comments-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+    'action'=>"?r=comments/create&post_id=$post_id&cou=$cou_id",
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
+<br/>
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'fr_id'); ?>
-		<?php echo $form->textField($model,'fr_id'); ?>
-		<?php echo $form->error($model,'fr_id'); ?>
-	</div>
+    <div class="form-group col-xs-12">
+            <textarea rows='6' name='Comments[content]' id='Comments_content' class="form-control" placeholder="我是..."></textarea>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textField($model,'content',array('size'=>60,'maxlength'=>1024)); ?>
-		<?php echo $form->error($model,'content'); ?>
-	</div>
+    <button type="submit" class="btn btn-warning btn-block btn-lg center-block" style=''>
+        <span><span class="glyphicon glyphicon-pencil"></span> 提交</span>
+    </button>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'send_time'); ?>
-		<?php echo $form->textField($model,'send_time'); ?>
-		<?php echo $form->error($model,'send_time'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
